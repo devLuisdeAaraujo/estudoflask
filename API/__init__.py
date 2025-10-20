@@ -22,5 +22,9 @@ from API.views.conta.conta_por_id import  MostrarContaPorId
 from API.views.conta.delete_id import DeleteContas
 from API.views.conta.atualizar_conta import AtualizarConta
 from .models.operacao_model import  Operacao
+from .views.operacao.operacao_view import OperacaoList
+from .views.operacao.operacao_por_id import OperaracaoPorId
+from .views.operacao.atualizar_operacao import AtualizarOperacao
+from .views.operacao.excluir_operacao import ExcluirOperacao
 if __name__ == '__main__':
     app.run(debug=True)

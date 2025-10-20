@@ -21,7 +21,7 @@ def excluir(id):
     return conta
 
 def atualizar_conta(id, conta_nova):
-    conta = Contas.query.get(id)
+    conta = Contas.query.get
     if conta is None:
         return None
     conta.nome = conta_nova.nome
@@ -30,3 +30,14 @@ def atualizar_conta(id, conta_nova):
     db.session.commit()
 
     return conta
+def alterar_saldo_conta(conta_id,operacao,tipo_funcao):
+    conta = mostrar_contas_por_id(conta_id)
+    if tipo_funcao == 1:
+
+        if operacao.tipo == 'entrada':
+            conta.valor += operacao.custo
+
+    else:
+        conta.valor -= operacao.custo
+
+    db.session.commit()

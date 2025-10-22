@@ -1,6 +1,7 @@
 from API import db
 from ..models.operacao_model import Operacao
 from ..services import contas_service
+from ..models.contas_model import Contas
 
 def cadastrar_operacao(operacao):
     operacao_db = Operacao(nome=operacao.nome,
@@ -20,21 +21,25 @@ def listar_operacao():
 def listar_operacao_por_id(id):
     return Operacao.query.get(id)
 
-def atualizar_operacao(id, operacao_nova):
-    operacao = Operacao.query.get(id)
-    if operacao is None:
-        return None
+def atualizar_operacao(operacao, operacao_nova):
+
+    valor_antigo = operacao.custo
     operacao.nome = operacao_nova.nome
     operacao.resumo = operacao_nova.resumo
     operacao.custo = operacao_nova.custo
     operacao.tipo = operacao_nova.tipo
     operacao.conta = operacao_nova.conta
     db.session.commit()
+    contas_service.alterar_saldo_conta(operacao_nova.conta,operacao_nova,2,valor_antigo)
 
     return operacao
+
+
 def excluir(id):
-    conta = Operacao.query.get(id)
-    db.session.delete(conta)
+    contas = Operacao.query.get(id)
+    if contas is None:
+        return None
+    db.session.delete(contas)
     db.session.commit()
-    return conta
+    contas_service.alterar_saldo_conta(contas.conta_id, contas, 3)
 

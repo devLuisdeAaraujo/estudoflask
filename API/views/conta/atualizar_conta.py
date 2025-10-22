@@ -8,7 +8,6 @@ from API import api
 
 class AtualizarConta(Resource):
     def put(self, id):
-
         conta_db = contas_service.mostrar_contas_por_id(id)
         if conta_db is None:
             return make_response(jsonify({'erro': 'Conta não encontrada'}), 404)

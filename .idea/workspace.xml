@@ -6,14 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="5f0bd2c6-1850-4cf9-a94d-6e222af1452a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/entidades/operacao.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/entidades/operacao.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/models/operacao_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/models/operacao_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/schemas/operacao_schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/schemas/operacao_schema.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/schemas/conta_schema.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/schemas/conta_schema.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/services/contas_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/services/contas_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/API/services/operacao_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/services/operacao_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/API/views/operacao/operacao_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/views/operacao/operacao_view.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/views/conta/atualizar_conta.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/views/conta/atualizar_conta.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/views/operacao/atualizar_operacao.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/views/operacao/atualizar_operacao.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/API/views/operacao/excluir_operacao.py" beforeDir="false" afterPath="$PROJECT_DIR$/API/views/operacao/excluir_operacao.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,25 +50,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.contas_model.executor": "Run",
-    "Python.run.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.contas_model.executor&quot;: &quot;Run&quot;,
+    &quot;Python.run.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\gusta\Desktop\BACKWITHFLASK\API\views\conta" />
@@ -130,6 +129,7 @@
       <workItem from="1760733180504" duration="5545000" />
       <workItem from="1760815352846" duration="6759000" />
       <workItem from="1760963299665" duration="17310000" />
+      <workItem from="1761161604087" duration="10476000" />
     </task>
     <servers />
   </component>
@@ -137,7 +137,7 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/BACKWITHFLASK$run.coverage" NAME="run Coverage Results" MODIFIED="1760980519922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API" />
+    <SUITE FILE_PATH="coverage/BACKWITHFLASK$run.coverage" NAME="run Coverage Results" MODIFIED="1761173263127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API" />
     <SUITE FILE_PATH="coverage/BACKWITHFLASK$contas_model.coverage" NAME="contas_model Coverage Results" MODIFIED="1760563603591" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/API/models" />
   </component>
 </project>

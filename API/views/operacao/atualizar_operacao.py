@@ -11,27 +11,26 @@ class AtualizarOperacao(Resource):
         operacao_db = listar_operacao_por_id(id)
         if operacao_db is None:
             return make_response(jsonify({'erro': 'Operacao não encontrada'}), 404)
+        os = OperacaoSchema()
+        validate = os.validate(request.json)
+        if validate:
+            return make_response(jsonify(validate),400)
+        else:
+            nome = request.json['nome']
+            resumo = request.json['resumo']
+            custo = request.json['custo']
+            tipo = request.json['tipo']
+            conta = request.json['conta_id']
 
-        cs = OperacaoSchema()
 
 
-        nome = request.json['nome']
-        resumo = request.json['resumo']
-        custo = request.json['custo']
-        tipo = request.json['tipo']
-        conta = request.json['conta_id']
-
-        conta_nova = Operacao(nome=nome,
+            operacao_nova = Operacao(nome=nome,
                                      resumo=resumo,
                                      custo=custo,
                                      tipo=tipo,
                                         conta=  conta)
-        if mostrar_contas_por_id(conta) is None:
-            return make_response({'erro': 'conta nao existe'}, 404)
-        else:
-            resultado = atualizar_operacao(id, conta_nova)
-
-            return make_response(jsonify(cs.dump(resultado)), 200)
+            resultado = atualizar_operacao(operacao_db,operacao_nova)
+            return  make_response(os.dump(resultado),200)
 
 
 api.add_resource(AtualizarOperacao,'/atualizar_operacao/<int:id>')

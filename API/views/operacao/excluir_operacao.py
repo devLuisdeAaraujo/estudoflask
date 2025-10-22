@@ -7,12 +7,12 @@ from ...services.operacao_service import excluir,listar_operacao_por_id
 
 class ExcluirOperacao(Resource):
     def delete(self, id):
-        operacao = excluir(id)
-        if operacao is None:
+        operacao_ex = excluir(id)
+        if operacao_ex is None:
             return make_response(jsonify({'erro': 'Operacao não encontrada'}), 404)
 
         cs = OperacaoSchema()
-        return make_response(jsonify(cs.dump(operacao)), 200)
+        return make_response(jsonify(cs.dump(operacao_ex)), 200)
 
 
 api.add_resource(ExcluirOperacao,'/excluir_operacao/<int:id>')

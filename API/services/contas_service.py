@@ -1,4 +1,5 @@
 from API import db
+from ..entidades import operacao
 from ..models.contas_model import  Contas
 
 def listar_contas():
@@ -30,14 +31,28 @@ def atualizar_conta(id, conta_nova):
     db.session.commit()
 
     return conta
-def alterar_saldo_conta(conta_id,operacao,tipo_funcao):
-    conta = mostrar_contas_por_id(conta_id)
-    if tipo_funcao == 1:
+def alterar_saldo_conta(conta_id, operacao, tipo_funcao, valor_antigo = None
+                        ):
+        conta = mostrar_contas_por_id(conta_id)
 
-        if operacao.tipo == 'entrada':
-            conta.valor += operacao.custo
+        if tipo_funcao == 1:
+            if operacao.tipo == 'entrada':
+                conta.valor += operacao.custo
+            else:
+                conta.valor -= operacao.custo
 
-    else:
-        conta.valor -= operacao.custo
+        elif tipo_funcao == 2:
+            if operacao.tipo == 'entrada':
+                conta.valor -= valor_antigo
+                conta.valor += operacao.custo
+            else:
+                conta.valor += valor_antigo
+                conta.valor -= operacao.custo
 
-    db.session.commit()
+        else:
+            if operacao.tipo == 'entrada':
+                conta.valor -= operacao.custo
+            else:
+                conta.valor += operacao.custo
+
+        db.session.commit()
